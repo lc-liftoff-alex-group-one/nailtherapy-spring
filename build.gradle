@@ -7,6 +7,9 @@ plugins {
 group = 'com.theone'
 version = '0.0.1-SNAPSHOT'
 
+// Hibernate v6.4 included Spring Boot v3.2.1 moved/removed the MySQL57Dialect class, set the project to use hibernate v6.3.2
+ext["hibernate.version"] = "6.3.2.Final" // if using kotlin gradle
+
 java {
 	sourceCompatibility = '17'
 }
@@ -17,7 +20,9 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
