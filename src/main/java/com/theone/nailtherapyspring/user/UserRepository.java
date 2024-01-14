@@ -1,6 +1,6 @@
-package com.theone.nailtherapyspring.models.data;
+package com.theone.nailtherapyspring.user;
 
-import com.theone.nailtherapyspring.models.User;
+import com.theone.nailtherapyspring.user.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

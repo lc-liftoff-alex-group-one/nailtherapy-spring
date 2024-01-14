@@ -1,5 +1,6 @@
-package com.theone.nailtherapyspring.models;
+package com.theone.nailtherapyspring.user;
 
+import com.theone.nailtherapyspring.models.AbstractEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
