@@ -10,11 +10,14 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/services")
 public class ServiceController {
-    @Autowired
-    ServiceRepository serviceRepository;
+    private final ServiceRepository serviceRepository;
+    private final ServiceService serviceService;
 
     @Autowired
-    ServiceService serviceService;
+    public ServiceController(ServiceRepository serviceRepository, ServiceService serviceService) {
+        this.serviceRepository = serviceRepository;
+        this.serviceService = serviceService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Service>> getAllServices() {

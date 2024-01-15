@@ -11,8 +11,7 @@ import java.util.Optional;
 
 @Service
 public class ServiceService {
-    @Autowired
-    ServiceRepository serviceRepository;
+    private final ServiceRepository serviceRepository;
 
     public ServiceService(ServiceRepository serviceRepository) {
         this.serviceRepository = serviceRepository;
