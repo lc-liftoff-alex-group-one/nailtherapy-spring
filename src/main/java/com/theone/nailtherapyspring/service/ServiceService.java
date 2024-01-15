@@ -1,6 +1,7 @@
 package com.theone.nailtherapyspring.service;
 
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,7 +11,8 @@ import java.util.Optional;
 
 @Service
 public class ServiceService {
-    private final ServiceRepository serviceRepository;
+    @Autowired
+    ServiceRepository serviceRepository;
 
     public ServiceService(ServiceRepository serviceRepository) {
         this.serviceRepository = serviceRepository;
