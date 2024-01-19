@@ -1,6 +1,7 @@
 package com.theone.nailtherapyspring.user;
 
 import com.theone.nailtherapyspring.models.AbstractEntity;
+import com.theone.nailtherapyspring.role.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -8,6 +9,7 @@ import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.NaturalId;
 
 import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = { "emailAddress" })})
