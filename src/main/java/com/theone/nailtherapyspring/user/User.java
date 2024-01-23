@@ -1,5 +1,6 @@
 package com.theone.nailtherapyspring.user;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.theone.nailtherapyspring.models.AbstractEntity;
 import com.theone.nailtherapyspring.role.Role;
 import jakarta.persistence.*;
@@ -33,6 +34,7 @@ public class User extends AbstractEntity {
 
     @NotBlank
     @Size(max = 100)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String passcode;
 
     @ManyToMany

@@ -16,7 +16,7 @@ import java.util.Objects;
 public abstract class AbstractEntity implements Serializable {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -26,7 +26,7 @@ public abstract class AbstractEntity implements Serializable {
     @Column(nullable = false)
     private Instant updated;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
