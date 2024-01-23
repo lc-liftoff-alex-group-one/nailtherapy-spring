@@ -28,7 +28,7 @@ public class ServiceController {
 
     @Operation(
             summary = "Retrieve all services",
-            description = "Get a list of all service objects.",
+            description = "Responds with a list of all service objects with id, name, description, price, and available status.",
             tags = { "services", "get" }
     )
     @GetMapping
@@ -60,6 +60,9 @@ public class ServiceController {
             description = "Save a new service object.  Responds with the new Service object with id, name, description, price, and available status.",
             tags = { "services", "post" }
     )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Service.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
     @PostMapping
     public ResponseEntity<Service> saveService(@RequestBody Service service) {
         Service newService = serviceRepository.save(service);
@@ -71,6 +74,10 @@ public class ServiceController {
             description = "Update a service object by specifying its id.  Responds with the updated Service object with id, name, description, price, and available status.",
             tags = { "services", "put" }
     )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Service.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+            @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
     @PutMapping("/{id}")
     public ResponseEntity<Service> updateService(@PathVariable Integer id, @RequestBody Service service) {
         return serviceService.updateService(id, service);
@@ -79,7 +86,7 @@ public class ServiceController {
     @Operation(
             summary = "Delete a service by id",
             description = "Delete a service object by specifying its id.",
-            tags = { "services", "get" }
+            tags = { "services", "delete" }
     )
     @DeleteMapping("/{id}")
     public String deleteService(@PathVariable Integer id) {
