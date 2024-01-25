@@ -1,4 +1,4 @@
-package com.theone.nailtherapyspring.scheduling;
+package com.theone.nailtherapyspring.appointment;
 
 import org.springframework.data.repository.CrudRepository;
 
