@@ -13,7 +13,7 @@ public class Image extends AbstractEntity {
     private Long uploadedBy;
 
     @Lob
-    @Column(name = "imagedata")
+    @Column(name = "imagedata", columnDefinition = "LONGBLOB")
     private byte[] imageData;
 
     public Image() {
