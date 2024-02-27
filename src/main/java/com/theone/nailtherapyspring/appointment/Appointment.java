@@ -2,16 +2,19 @@ package com.theone.nailtherapyspring.appointment;
 
 
 import com.theone.nailtherapyspring.service.Service;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 import java.util.Objects;
 
+@Entity
 public class Appointment {
 
     @Id
     @GeneratedValue
     private int id;
+
 
    private String day;
    private String time;
@@ -21,7 +24,6 @@ public class Appointment {
        this.day = day;
        this.time = time;
        this.service = service;
-
    }
 
 

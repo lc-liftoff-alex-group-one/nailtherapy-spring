@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AppointmentController {
 
     @Autowired
-    private AppointmentRespository appointmentRespository;
+    private AppointmentRepository appointmentRepository;
 
-    @GetMapping
+    @GetMapping("appointments")
     public String displayAppointments(Model model){
         model.addAttribute("title", "Appointments");
-        model.addAttribute("appointments", appointmentRespository.findAll());
+        model.addAttribute("appointments", appointmentRepository.findAll());
         return "appointments/index";
     }
 
@@ -31,14 +31,14 @@ public class AppointmentController {
             model.addAttribute("title", "Book Appointment");
             return "appointments/details";
         }
-        appointmentRespository.save(newAppointment);
+        appointmentRepository.save(newAppointment);
         return "redirect:/index";
     }
 
     @GetMapping("cancel")
     public String cancelAppointment(Model model){
       model.addAttribute("title", "Cancel Appointment");
-      model.addAttribute("appointments", appointmentRespository.findAll());
+      model.addAttribute("appointments", appointmentRepository.findAll());
       return "appointments/cancel";
     }
 
@@ -46,7 +46,7 @@ public class AppointmentController {
     public String processCancellation(int[] appointmentIds){
         if (appointmentIds != null){
             for (int id : appointmentIds){
-                appointmentRespository.deleteById(id);
+                appointmentRepository.deleteById(id);
             }
         }
         return "redirect:/appointments";

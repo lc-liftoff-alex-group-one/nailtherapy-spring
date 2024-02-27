@@ -1,5 +1,5 @@
 
-package com.theone.nailtherapyspring.Comments;
+package com.theone.nailtherapyspring.Comment;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-public class Comments {
+public class Comment {
     @Id
     @GeneratedValue
     private int id;
@@ -17,12 +17,12 @@ public class Comments {
     @NotBlank(message = "Comment is required")
     private String comment;
 
-    public Comments(String name, String comment){
+    public Comment(String name, String comment){
         this.name=name;
         this.comment=comment;
     }
 
-    public Comments(){}
+    public Comment(){}
 
     public int getId() {
         return id;
